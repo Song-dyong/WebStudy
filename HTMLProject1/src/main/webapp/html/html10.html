@@ -1,0 +1,70 @@
+<!-- 82page table
+	태그: 테이블형태를 만들어주는 태그 (table)
+	한 줄 출력 => tr
+	<tr>---------------------
+	
+	--------------------</tr>
+	<tr>---------------------
+	
+	--------------------</tr>
+	<tr>---------------------
+	
+	--------------------</tr>
+	<tr>-------------------------------------------------
+	<th>이미지</th> <th>곡명</th> <th>가수명</th> <th>앨범</th>	=> 제목줄 
+	-------------------------------------------------</tr>
+	<tr>-------------------------------------------------
+	<td>1.jpg</td> <td>hype boy</td> <td>new jeans</td> <td>ditto</td>
+	-------------------------------------------------</tr>
+		주의) th 갯수와 td의 갯수 맞추기 
+		
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>성적표</h1>
+	<table border=1 bordercolor=black width=350>
+		<tr>
+			<th>학번</th>
+			<th>이름</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+		</tr>
+		<!-- 데이터 첨부 -->
+		<tr>
+			<td>1</td>
+			<td>홍길동</td>
+			<td>90</td>
+			<td>90</td>
+			<td>90</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>심청이</td>
+			<td>80</td>
+			<td>80</td>
+			<td>80</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>박문수</td>
+			<td>70</td>
+			<td>70</td>
+			<td>70</td>
+		</tr>
+		<tr>
+			<td colspan="5">총인원:2</td>
+		</tr>
+		<tr>
+			<td colspan="2">2개짜리</td>
+			<td colspan="3">3개짜리</td>
+		</tr>
+	</table>
+</body>
+</html>
