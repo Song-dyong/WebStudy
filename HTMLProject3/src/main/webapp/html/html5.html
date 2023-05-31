@@ -1,0 +1,181 @@
+<!-- 
+		<table> 대체
+		----------- CSS
+		display : table
+			=> <table>
+		display : table-row
+			=> <tr>
+		display : table-cell
+			=> <td>
+		display : table-column
+			=> <th>
+		display : table-caption
+			=> <caption>
+		
+		<pre> : 문서를 있는 그대로 출력할 때 => 상세보기, 줄거리 등등..
+				=>  <pre> 
+					내용
+					</pre> ===> X
+					<pre>내용</pre> ===> O
+					
+		<span>: 기능 x 
+				필요한 부분만 CSS적용
+		
+		<form> => 화면 출력하지 않는다 
+		------	  사용자가 입력한 모든 데이터를 모아서 한 번에 전송할 때 사용
+				  => 반드시 <input type=submit>을 동반한다 (전송버튼)
+			id, class
+			method => GET / POST
+					  GET방식 : URL뒤에 데이터를 첨부해서 전송
+					  		   ---- 파일명?데이터~~~
+					  		   단점: 데이터가 노출된다 (보안 취약)
+					  		   get방식이 default
+					  		   화면 출력 / 단순한 데이터전송시에 사용
+					  		   	ex) 페이지번호 요청, 검색어 요청 ... 
+					  POST방식: 내부적으로 전송 (데이터 노출x)
+					  			=보안(id, password)
+					  				로그인, 회원가입 ..
+					  			=전송할 데이터가 많을 경우 사용
+					  				게시판, 수정하기, 회원가입
+					  				파일 업로드, 예약...
+					  	형식)
+					  		<form method="GET|POST"> => 대소문자 구분 없음
+					  		<form method="psot"> => get으로 인식
+					  		<form> => method를 사용하지 않은 경우 ==> get
+					  		
+			action => 데이터를 전송 받을 파일명 지정
+				action="a.jsp" , action="BoardInsertServlet"
+				-------------- 보낸 데이터를 받는다
+				
+				값을 전송하는 태그
+				------------
+				HTML : <a> , <form> ==> 데이터 전송 / 화면 변경
+							-------- 유일하게 post를 지정할 수 있음 
+				JavaScript : location.href="파일명"
+				Java : response.sendRedirect("파일명")
+				-------------------------------------- 나머지는 GET방식만 가지고 있음
+				<a href="파일명?데이터전송">
+				location.href="파일명?데이터전송"
+				response.sendRedirect("파일명?데이터전송")
+					=> 데이터 전송
+					------------- 자바: 메소드의 매개변수를 이용해서 전송
+								웹 프로그램: url 주소를 이용해서 전송 
+										  ------- ? 이용
+						형식) 
+							insert.jsp로 no=1 전송할 때,
+							=>insert.jsp?no=1 (o)
+							=>insert.jsp? no = 1 (x)  
+							=> c:\\javaDev
+							한 개 이상의 데이터를 전송할 때,
+							insert.jsp?id=aaa&pwd=1234
+											&를 통해서 전송
+									-----------------request안에 첨부해서 제공함
+									JSP,Servlet, Spring, NodeJS
+									---------------------------
+									request, response: 웹 프로그램에서 제공
+									-------
+									String id=request.getParameter("id");
+										   --- aaa
+									String pwd=request.getParameter("pwd");
+										  ---- 1234
+									=> Web은 데이터형이 없다
+										무조건 문자열 ==> 해당 데이터형으로 변경 (Wrapper)
+									 
+		---------------------------------------------------------------------------------
+		
+		<select> : 콤보박스
+			|
+		---------
+		|		|
+	option	  optgroup => multiple => 여러 개 동시 선택	
+	데이터입력	
+	
+	=> 선택이 되었을 때, 자바에서 받는 경우
+		=여러 개가 선택되면 String[] => getParameterValus() => select(multiple), checkbox
+		=하나만 선택되면 String => getParameter() => text, textarea, radio
+
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 102page의 select: 목록 태그 (오라클의 check) 
+		<select>	==> 선택시 데이터 전송 => a가 선택되면, a값이 넘어감 
+			<option>A</option>	=> A
+			<option>B</option>	=> B
+			<option>C</option>	=> C
+		</select>
+		
+		<select>	 
+			<option value="aaa">A</option>	=> aaa (실제 데이터를 숨기고, 선택시 그 데이터가 넘어가도록 설정)
+			<option value="bbb">B</option>	=> bbb
+			<option value="ccc">C</option>	=> ccc
+		</select>
+														<보여주는 값과 실제 전송되는 값을 다르게 설정>
+		<select>	 
+			<option value="name">이름</option>	=> name	(컬럼명을 통해서 값을 출력)
+			<option value="subject">제목</option>	=> subject
+			<option value="content">내용</option>	=> content
+		</select>
+		
+-->
+	<!-- select : single -->
+	<h1>select : single</h1>
+	<select>
+		<option>영화명</option>
+		<option>장르</option>
+		<option>출연진</option>
+		<option>개봉일</option>
+		<option>극장</option>
+	</select>
+	<h1>select : multiple</h1>
+	<select multiple="multiple">
+		<option>영화명</option>
+		<option>장르</option>
+		<option>출연진</option>
+		<option>개봉일</option>
+		<option>극장</option>
+	</select>
+	<h1>select : group 출력</h1>
+	<select name="movie">
+		<optgroup label="과정">
+			<option>Java</option> 			<!-- 객체지향 /라이브러리 -->
+			<option>Oracle</option>			<!-- DML / DPL (CURD) -->
+			<option>HTML/CSS</option>		<!-- 형식암기 -->
+			<option>JavaScript</option>		<!-- Jquery(AJax), VueJS, ReactJS -->
+			<option>JSP/Servlet</option>	<!-- 내장객체 (request, response, session) -->
+			<option>Spring</option>			<!-- XML, Annotation= Spring-Boot, Spring-Cloud -->
+			<option>AWS</option>			<!-- 호스팅 -->
+		</optgroup>
+		<optgroup label="프로젝트">
+			<option>JSP(Ajax)</option>
+			<option>Spring(Vue)</option>
+			<option>Spring-Boot기반 ReactJS</option>
+		</optgroup>
+	</select>
+	<!-- 
+			서버 연결 => 데이터 전송시에 반드시 name 속성을 이용해야함
+			name이 없으면, null값. ==> 자바에서 값을 받기 위해서
+			
+			1. 형식, 태그명, 속성
+			  ---------------- 모양 확인
+			2. 웹 => 형식에 맞게 구현 => 순서에 맞게 구현
+			3. 디자인 설정 => CSS
+			4. 서버와 연결
+			5. 요청 데이터를 받아서 출력
+			-----------------------
+				옵션: 고정 / 한 부분만 변경 
+					------------------- <jsp: include page="파일명">
+			6. 데이터관리 / 데이터출력 프로그램 
+				Model	  View    
+			   ---------------------- 제어 Controller
+			   MVC 구조
+			
+	 -->
+
+</body>
+</html>

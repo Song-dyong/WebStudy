@@ -1,0 +1,65 @@
+<!-- 
+		
+		------------------ 개념보다 구현이 중요
+		요청 => 어떤 화면 제공
+		응답 => 어떤 결과
+		------------------ 주고 받기
+		ex) 상세보기
+			------ 번호 전송 => 번호에 대한 데이터를 오라클에서 찾음
+			=> DAO, VO
+			   ------ HTML (JSP / SERVLET)
+		HTML / 오라클 => servlet 연습
+					   -------- CURD
+	----------------------------------------------------------------------
+	105page
+	-------
+		HTML5 문서 구조화
+				  ----- 템플릿 ==> 가로 (inline) / 세로 (block)
+				  					<span>		  <div>
+				  					print()		  println()
+				  			
+				  		같은 구조 : 고정 / 가변
+		프로젝트 : 메인페이지 (조원 동시)
+			=> 기능 : 회원가입, 커뮤니티, 목록, 상세보기, 찜하기, 좋아요 ...
+					결제, 추천, 예약 ...
+					
+				회원 / 로그인 => 첫 번째 순서 (아이디를 구분자로 사용하기 때문에)
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	background-color: yellow;
+}
+span {
+	background-color: cyan;
+/* 	display: block; */
+}
+</style>
+</head>
+<body>
+	<h1>&lt;div&gt; 예제 (블록 형식으로 한 줄 전체를 차지)</h1>
+	<div>Java</div>
+	<div>Oracle</div>
+	<div>HTML</div>
+	<div>JSP/Servlet</div>
+	<div>Spring(Spring-boot)</div>
+	<div>MyBatis/JPA</div>
+	<div>Spring Framework / Spring-Data / Spring-Cloud / Spring-Betch</div>
+	<div>AWS</div>
+	<h1>&lt;span&gt; 예제 (인라인 크기만큼 분할)</h1>
+	<span>Java</span>
+	<span>Oracle</span>
+	<span>HTML</span>
+	<span>JSP/Servlet</span>
+	<span>Spring(Spring-boot)</span>
+	<span>Spring Framework / Spring-Data / Spring-Cloud / Spring-Betch</span>
+	<span>AWS</span>
+	
+</body>
+</html>
