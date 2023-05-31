@@ -1,0 +1,66 @@
+<!-- 
+		후손 선택자 / 자손 선택자
+		--------   ---------
+		태그명(아이디명, 클래스명, 속성 선택자) 태그명(아이디명, 클래스명, 속성선택자)
+		div.aaa li.bbb
+		
+		<div>
+			<p></p>
+			<h1></h1>
+			<h1></h1>
+			<span>
+				<h1></h1>
+			</span>
+		</div>
+					div
+					 |
+			-------------------------
+			|		|		|		|
+			p		h1		h1		span	=> 	자손 div > h1
+									|
+									h1		=>	후손 div h1
+													div > span > h1		
+			ML => 트리 형태 => DOM (Document Object Model)
+			=> 새로고침, 태그 추가시에 속도가 느려짐
+				-> 새롭게 메모리에 저장
+					
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div p~h1{	/* 모든 형제   태그 ~ 태그 */
+	color:red;
+}
+div p+h1{	/* 인접 형제   태그 + 태그 */
+	color:magenta;
+}
+div>ul>li{
+	color:green;
+}
+div>ul>li>ul>li{
+	color:blue;
+}
+</style>
+</head>
+<body>
+	<div>
+		<p>교육 과정</p>
+		<h1>Java</h1>	<!-- magenta -->
+		<h1>Oracle</h1>	<!-- red -->
+		<ul>
+			<li>HTML/CSS</li>	<!-- Green -->
+			<li>JavaScript</li> <!-- Green -->
+			<li>
+				<ul>
+					<li>JSP</li>	<!-- Blue -->
+					<li>Spring</li> <!-- Blue -->
+					<li>AWS</li>	<!-- Blue -->
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
