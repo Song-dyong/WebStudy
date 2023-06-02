@@ -1,0 +1,40 @@
+<!-- 
+		position: absolute|relative|fixed|static(default)
+			1. static (default) : HTML 코딩 순서로 배치
+			2. absolute : 원하는 위치에 배치
+				(top, left, right, bottom) => 직접 배치
+			3. relative : 이전 태그 위치에 참조 배치 (위에 있는 태그)
+			------------------------------------------- Layout , 지도 이미지
+			*** 4. fixed : 고정좌표 (메뉴 고정)
+		
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.a{
+	float: left;
+	width: 100px;
+	background-color: yellow;
+	margin-right: 10px;
+	padding: 20px;
+}
+.b{
+	position: relative;
+	top: 30px;
+	left:-50px;
+	width: 200px;
+	background-color: blue;
+	color: white;
+	float: left;
+	padding: 20px;
+}
+</style>
+</head>
+<body>
+	<div class="a">box1</div>
+	<div class="b">box2</div>
+</body>
+</html>

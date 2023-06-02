@@ -1,0 +1,157 @@
+<!-- 
+		1. CSS => 선택자
+			1) 태그: 태그명 { 속성명:값 }
+			2) id: id명 { 속성명:값 }
+			3) class: class명 { 속성명:값 } 
+			4) 속성 선택자: 태그명[속성=값] { 속성명:값 }
+				태그명[속성=값], 태그명[속성*=값], 태그명[속성^*=값], 태그명[속성$*=값]
+				  equlas		contains		startsWith		endsWith
+				  ----------------------------------------------------- * , ^ , $ (REGEXP: 정규식)
+			5) 등위 , 자손 , 후손 선택자
+				   div
+					|
+			-----------------
+			|		|		|
+			h1		p		p	-------- 자손 (div > h1)
+		(div > h1+p)		| (div > h1~p)
+						---------
+						|		|
+						h1		h1	---- 후손 (div h1)
+				=> 목록은 구분이 거의 없음
+					th+td, dt+dd => 상세보기
+			6) 가상선택자
+				:hover , :checked , :focus
+			7) 구조선택자
+				:nth-child , :first-child , :last-child
+			8) 문자선택자
+				::after , ::before
+		--------------------------------------------------------------
+			1) 태그 선택 		2) 디자인과 관련 속성 ==> 사용자 정의는 없음
+		
+		속성
+		  1) 텍스트 관련 속성
+		  	=> 글자 크기 속성
+		  		font-size=(px, em)
+		  				px=14 (기본사이즈)
+		  				em=> 2em (14*2 - 28), 1.2em => (14*1.2)
+		  	=> 글자 스타일(글꼴)
+		  		font-family: 궁서체 고딕체 바탕체 (앞에서부터 순서대로 적용 -> 없으면 다음 폰트 적용)
+		  		font-weight: bold체
+		  	=> 정렬 
+		  		text-align: (left|center|right)
+		  				IE  => center정렬
+		  				크롬 => left정렬 
+		  		text-decoration: (none:underline) => <a>: 디폴트에 언더라인이 있음
+		  		vertical-align: (top|middle|bottom)
+		  		=============== td태그 (여러 문장일 때 -> 중간에 위치)
+		  		white-space: 자동 줄바꿈 (내용, 줄거리 등)
+		  		line-height: 자간 
+		  		
+		  2) 이미지 관련 속성
+		  		background-image:url('')
+		  		background-size:width, height => 한번에 합쳐서 설정-cover
+		  		background-color: yellow  -기본으로 설정된 색상 사용
+		  						  rgb(255,255,255) - rgb값으로 설정
+		  						  #FFF, #FC6...
+		  		background:
+		  		
+		  3) 위치 속성
+		  		margin: 태그와 태그의 여백
+		  		padding: 태그 안의 문자, 이미지 여백
+		  		-------------------------------
+		  		margin
+		  			= margin-left
+		  			= margin-right
+		  			= margin-top
+		  			= margin-bottom
+		  		 	= margin: 시계방향으로 설정 가능 (top, right, bottom, left)
+		  		 		ex) margin:10px; == margin: 10px 10px 10px 10px;
+		  		 			margin:10px 20px; == margin: 10px 20px 10px 20px;
+		  		 			margin: 10px 20px 30px; == margin: 10px 20px 30px 20px;
+		  		padding
+		  			= padding-left
+		  			= padding-right
+		  			= padding-top
+		  			= padding-bottom
+		  			= padding: 시계방향으로 설정 가능 (top, right, bottom, left)
+		  			
+		  4) 테두리 속성
+		  		border
+		  			= border-width
+		  			= border-style (solid, dotted, dashed, double)
+		  			= border-color
+		  			= border: 2px solid red (한 번에 설정 가능 -> 순서대로 width, style, color)
+		  			
+		  5) 목록 관련 속성
+		  		= list-style-type:none (점, 숫자 등 없애기)
+		  6) 박스 모델
+			  	inline
+			  		=input
+			  		=img
+			  		=textarea
+			  		=select
+			  		=b
+			  		=em
+			  		=span
+			  	block
+			  		=div
+			  		=table
+			  		=ul, ol
+			  		=br, p
+			  	inline-block: 태그의 width, height 변경 가능
+			  	
+		  7) 포지션
+		  		static: 코딩 순서대로 출력
+		  		absolute: 절대 좌표 (top, bottom, left, right)
+		  		relative: 상대 좌표
+		  		fixed: 고정 (메뉴, 퀵메뉴, 채팅 ..)
+		  8) 기타 속성
+		  		z-index: 레이어
+		  		float (left|right)
+		  			=> clear: 플롯 해제
+		  9) 반응형 웹
+				해상도에 따라 크기 변경 
+				@media
+					
+						
+						
+						
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+a{
+	display:block;
+	color: black;
+	text-decoration: none;
+	margin: 10px;
+}
+a:hover{
+	color: cyan;
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+	<a href="#">“회사 대표와 결혼 후 노모 모실 사원 찾습니다” [잇슈 키</a>
+	<a href="#">“회사 대표와 결혼 후 노모 모실 사원 찾습니다” [잇슈 키</a>
+	<a href="#">“회사 대표와 결혼 후 노모 모실 사원 찾습니다” [잇슈 키</a>
+	<a href="#">“회사 대표와 결혼 후 노모 모실 사원 찾습니다” [잇슈 키</a>
+	<a href=>“회사 대표와 결혼 후 노모 모실 사원 찾습니다” [잇슈 키</a>
+	<div style=margin:10px>
+		HELLO
+	</div>
+	<div>
+		CSS
+	</div>
+	<span>
+		HELLO
+	</span>
+	<span>
+		HTML
+	</span>
+</body>
+</html>
