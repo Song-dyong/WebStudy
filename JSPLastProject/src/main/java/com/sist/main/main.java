@@ -26,15 +26,16 @@ public class main {
 		option.addArguments("--disable-popup-blocking");
 		
 		driver = new FirefoxDriver(option);
-		url="https://visitjeju.net/kr/detail/list?menuId=DOM_000001718000000000&cate1cd=cate0000000002#p1&pageSize=12&sortListType=reviewcnt&viewType=map&isShowBtag&tag";
+		url="https://www.myrealtrip.com/offers?t=llp&qct=Jeju&qcr=Korea%2C%20Republic%20of";
 	}
 
 	public void dataGet() {
 		try {
 			driver.get(url);
-			Thread.sleep(10000);
+			Thread.sleep(3000);
 			
-			String tag1="/html/body/div/div[2]/div/div[2]/div/div/div/div[2]/div[5]/div[2]/div/ul/li[1]/dl/dt/a/p[1]\r\n";
+			String tag1="/html/body/div[4]/div/div/div/div[2]/main/div/div[2]/a[";
+			String tag2="]/div/div/img";
 			
 			// By.className
 			

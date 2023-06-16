@@ -1,0 +1,59 @@
+<!-- 
+	객체 ===> 배열[객체...] 	web store(sqlite)  ==> 웹 브라우저 안에서 데이터를 4만개 정도 저장할 수 있음 
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function(){
+	// 객체 선언 => JSON (자바스크립트 오브젝트 표현법)
+	// 키:값		 ------> Boot는 자동 생성 / Framework: 직접 생성 / 
+	// 오라클 => 브라우저 (불가능) 
+	// 오라클 ==> 자바 ==> 자바스크립트
+	// 		  ~VO	{}
+	//		 List [{},{},{}]
+	let sawon={
+		sabun:1,
+		name:"홍길동",
+		dept:"개발부",
+		job:"대리",
+		pay:4500
+	}
+	
+	// 출력
+	document.write("사번: "+sawon.sabun+"<br>")
+	document.write("이름: "+sawon.name+"<br>")
+	document.write("부서: "+sawon.dept+"<br>")
+	document.write("직위: "+sawon.job+"<br>")
+	document.write("급여: "+sawon.pay+"<br>")
+	
+	document.write("<hr>")
+	
+	document.write("사번: "+sawon['sabun']+"<br>")
+	document.write("이름: "+sawon['name']+"<br>")
+	document.write("부서: "+sawon['dept']+"<br>")
+	document.write("직위: "+sawon['job']+"<br>")
+	document.write("급여: "+sawon['pay']+"<br>")
+	
+	document.write("<hr>")
+	
+	for(let key in sawon)
+	{
+		document.write(sawon[key]+"<br>")
+	}
+	
+	document.write("<hr>")
+
+	
+	
+}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
