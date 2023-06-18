@@ -1,0 +1,67 @@
+<!-- 
+		객체 323page
+		===========
+		배열  /  객체
+		[]		{},	class(생성자 , 접근지정어 , 멤버변수 , 멤버함수 , getter/setter)
+					자바스크립트의 객체지향 프로그램
+					
+		1) 배열 : 데이터형 섞어서 사용 가능
+			선언)
+				let arr=[];
+			값 추가)
+				arr[0]=1;
+				arr[1]="hong";
+				arr.push(1)
+			선언과 동시에 초기화
+				let arr=[1,2,3,4...]
+		2) 지역변수 / 전역변수
+		
+		<script>
+			let b=20;		=> 전역변수: 스크립트 전체에서 사용 가능 
+			function aaa(){
+				let a=10; 	=> 지역변수: aaa() 함수 안에서만 사용 가능
+			}
+		</script>
+		
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function(){ // main함수 => $(function(){}) <JQuery>
+	// 배열선언
+	let names=["홍길동","심청이","박문수","강감찬","이순신"];
+	console.log(names);
+	console.log("인원수: "+names.length);
+	// 데이터 추가
+	names.push("춘향이");
+	console.log(names);
+	console.log("인원수: "+names.length);
+	// 데이터 삭제
+	names.pop()
+	console.log(names);
+	console.log("인원수: "+names.length);
+	names.delete;	
+	console.log(names);
+	console.log("인원수: "+names.length);
+	
+/* 
+	배열 함수
+	push() : (마지막 인덱스에) 배열에 값을 추가할 때
+	pop() : 배열의 마지막 값을 제거
+	slice() : 원하는 위치부터 잘라서, 새로운 배열을 만들 때
+		=> arraycopy() <자바>
+	find() : 찾기
+	delete() : 배열 완전 삭제
+	length : 배열의 저장 갯수 확인
+*/
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
