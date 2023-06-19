@@ -46,23 +46,17 @@ public class ActivityDAO {
 		} catch (Exception e) {
 		}
 	}
-	
+
 	public void activityCategoryInsert(ActivityCategoryVO vo)
 	{
 		try {
 			getConnection();
 			String sql="INSERT INTO activity_category VALUES("
-					+ "acc_accno_seq.nextval,?,?,?,?,?,?,?,?)";
+					+ "acc_accno_seq.nextval,?)";
 			ps=conn.prepareStatement(sql);
 			
 			ps.setString(1, vo.getName());
-			ps.setString(2, vo.getTitle());
-			ps.setString(3, vo.getPoster());
-			ps.setString(4, vo.getLink());
-			ps.setDouble(5, vo.getScore());
-			ps.setInt(6, vo.getReview_count());
-			ps.setInt(7, vo.getPrice());
-			ps.setString(8, vo.getDiscount_rate());
+			
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -71,24 +65,31 @@ public class ActivityDAO {
 			disConnection();
 		}
 	}
-	
+
 	public void activityInfoInsert(ActivityInfoVO vo) {
 		try {
 			getConnection();
 			String sql="INSERT INTO activity_info VALUES("
-					+ "aci_acino_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+					+ "aci_acino_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
 			ps.setDouble(2, vo.getScore());
-			ps.setInt(3, vo.getReviewCount());
+			ps.setInt(3, vo.getReview_count());
 			ps.setString(4, vo.getPlaytime());
-			ps.setString(5, vo.getTicketOption1());
-			ps.setString(6, vo.getTicketOption2());
-			ps.setString(7, vo.getTicketOption3());
-			ps.setString(8, vo.getContentSubject());
-			ps.setString(9, vo.getContentCont());
+			ps.setString(5, vo.getTicket_option1());
+			ps.setString(6, vo.getTicket_option2());
+			ps.setString(7, vo.getTicket_option3());
+			ps.setString(8, vo.getContent_subject());
+			ps.setString(9, vo.getContent_cont());
 			ps.setInt(10, vo.getPrice());
-			ps.setString(11, vo.getPoster());
+			ps.setString(11, vo.getDiscount_rate());
+			ps.setString(12, vo.getReviewer());
+			ps.setString(13, vo.getReview_content());
+			ps.setString(14, vo.getHours_use());
+			ps.setString(15, vo.getLocation_name());
+			ps.setString(16, vo.getLocation_poster());
+			ps.setString(17, vo.getHow_use());
+			ps.setString(18, vo.getPoster());
 			ps.executeUpdate();
 			
 		} catch (Exception e) {
@@ -103,8 +104,9 @@ public class ActivityDAO {
 		List<ActivityInfoVO> list= new ArrayList<ActivityInfoVO>();
 		try {
 			getConnection();
-			String sql="SELECT acino, title, score, review_count, playtime, ticket_option1, ticket_option2"
-					+ " ticket_option3, content_subject, content_cont, price, poster "
+			String sql="SELECT /*+ INDEX_ASC(activity_info aci_acino_pk)*/acino, title, score, review_count, playtime, ticket_option1, ticket_option2"
+					+ " ticket_option3, content_subject, content_cont, price, discount_rate, reviewer, review_content, "
+					+ " hours_use, location_name, location_poster, how_use, poster "
 					+ "FROM activity_info";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
@@ -114,14 +116,21 @@ public class ActivityDAO {
 				vo.setAcino(rs.getInt(1));
 				vo.setTitle(rs.getString(2));
 				vo.setScore(rs.getDouble(3));
-				vo.setReviewCount(rs.getInt(4));
+				vo.setReview_count(rs.getInt(4));
 				vo.setPlaytime(rs.getString(5));
-				vo.setTicketOption1(rs.getString(6));
-				vo.setTicketOption2(rs.getString(7));
-				vo.setTicketOption3(rs.getString(8));
-				vo.setContentSubject(rs.getString(9));
-				vo.setContentCont(rs.getString(10));
-				String poster=rs.getString(11);
+				vo.setTicket_option1(rs.getString(6));
+				vo.setTicket_option2(rs.getString(7));
+				vo.setTicket_option3(rs.getString(8));
+				vo.setContent_subject(rs.getString(9));
+				vo.setContent_cont(rs.getString(10));
+				vo.setPrice(rs.getInt(11));
+				vo.setDiscount_rate(rs.getString(12));
+				vo.setReviewer(rs.getString(13));
+				vo.setReview_content(rs.getString(14));
+				vo.setHours_use(rs.getString(15));
+				vo.setLocation_name(rs.getString(16));
+				vo.setLocation_poster(rs.getString(17));
+				String poster=rs.getString(18);
 				poster=poster.replace("#", "&");
 				vo.setPoster(poster);
 				list.add(vo);
@@ -140,21 +149,14 @@ public class ActivityDAO {
 		List<ActivityCategoryVO> list = new ArrayList<ActivityCategoryVO>();
 		try {
 			getConnection();
-			String sql="SELECT acino, name, title, poster, link, score, review_count, "
-					+ "price, discount_rate FROM activity_category ";
+			String sql="SELECT accno, name FROM activity_category";
+					
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				ActivityCategoryVO vo=new ActivityCategoryVO();
 				vo.setAccno(rs.getInt(1));
 				vo.setName(rs.getString(2));
-				vo.setTitle(rs.getString(3));
-				vo.setPoster(rs.getString(4));
-				vo.setLink("링크"+rs.getString(5));
-				vo.setScore(rs.getDouble(6));
-				vo.setReview_count(rs.getInt(7));
-				vo.setPrice(rs.getInt(8));
-				vo.setDiscount_rate(rs.getString(9));
 				list.add(vo);
 			}
 			rs.close();

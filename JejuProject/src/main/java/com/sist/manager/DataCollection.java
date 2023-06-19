@@ -44,7 +44,7 @@ public class DataCollection {
 
 				String tag1 = "/html/body/div[4]/div/div/div/div[2]/main/div/div[2]/a[";
 				String tag2 = "]/div/div/img";
-
+				
 				for (int j = 1; j <= 24; j++) {
 					WebElement imgElement = driver.findElement(By.xpath(tag1 + j + tag2));
 					String src = imgElement.getAttribute("src");
