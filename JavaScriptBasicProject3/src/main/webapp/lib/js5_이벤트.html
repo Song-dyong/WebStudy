@@ -1,0 +1,45 @@
+<!-- 
+	 Event: 사용자가 행위할 경우 발생
+	 		=> 자바 스크립트의 핵심
+	 -----------------------------
+	 	1) onclick: 버튼, 이미지, a태그 클릭 처리
+	 	2) onchange: <select>
+	 	3) mouseover / mouseout
+	 	4) keydown / keyup
+	 	
+	 => 인라인
+	 	<input type=button onclick="display()">
+	 	
+	 => 이벤트 등록  					==> Jquery... 라이브러리는 대부분 등록으로 이벤트 처리
+	 	window.onload=()=>{
+	 		let btn=document.~~
+	 		btn.onClick=function(){
+	 			이벤트 처리
+	 		}
+	 	}
+	 
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function btnClick(){
+	alert("Button Click!!")
+}
+</script>
+</head>
+<body>
+	<!-- 인라인(태그 안에서 제어) 이벤트 모델 356page / 358page 호출 방법 -->
+	<input type="button" value="click" onclick="btnClick()">
+	<!-- React/Vue => onClick="" 대소문자 구분 必 -->
+	<p>
+	<!-- a태그는 앞에 javascript:필요 -->
+	<a href="javascript:btnClick()">Click</a>
+	<p>
+	<!-- 자바스크립트의 함수를 직접 호출 가능 -->
+	<input type="button" value="click2" onclick="javascript:alert('Hello')">
+</body>
+</html>

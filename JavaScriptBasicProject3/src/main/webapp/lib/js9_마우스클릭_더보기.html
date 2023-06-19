@@ -1,0 +1,71 @@
+<!-- 
+		onclick
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+let i=0;
+// 열린 상태(0), 닫힌 상태(1)를 구분하기 위한 변수.
+window.onload=()=>{
+	let r=document.querySelector("#read");
+	// CSS제어 => <style>에서 처리하는게 더 편함
+	r.onmouseover=()=>{
+		r.style.cursor="pointer";
+	}
+	r.onmouseout=()=>{
+		r.style.cursor="none";
+	}
+	r.onclick=()=>{
+		if(i==0){
+			let ss=document.querySelector("#s");
+			ss.style.display='';
+			r.textContent="닫기";
+			i=1;
+		}
+		else{
+			let ss=document.querySelector("#s");
+			ss.style.display='none';
+			r.textContent="더보기"
+			i=0;
+		}
+	}
+	// form 태그에서 submit을 제거할 때 사용하는 방식 
+	// return false
+	// e.defaultPrevent() => 그 전의 이벤트를 제거
+	document.querySelector("#click").onclick=()=>{
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+	<a href="http://www.naver.com" id="click">Naver</a>
+	<p>
+	<pre>
+[서울=뉴시스] 박성환 기자 = 송상근 해양수산부 차관은 19일 일본 후쿠시마 원전 오염수가 우리 앞바다에 도달하는 시기과 관련해 
+"방출된 오염수 중 삼중수소는 4~5년 후부터 우리 바다로 유입돼 10년 후 우리 바다의 평상시 삼중수소 농도의 약 10만분의 1 수준인 
+0.001 세제곱미터당 베크렐(Bq/㎥) 내외에 도달하는 것으로 나타났다"고 강조했다.
+
+송 차관은 이날 오전 정부서울청사 별관에서 열린 일본 후쿠시마 원전 오염수 해양 방류 관련 브리핑에서 
+"국내 연구소의 시뮬레이션에 사용된 모델은 표층에서 수심 5000m까지 계산이 가능한 모델로, 시뮬레이션 결과도 수심 200~500m의 중층수 
+거동을 포함해 심층까지 계산한 결과"라며 이같이 말했다.	
+
+<span id="read">더보기</span>
+<span style="display:none" id="s">
+최근 수심 200~500m 물은 대만해협을 통해 제주 근해를 거쳐 동해로 유입되는 데 5~7개월 걸린다는 일각의 관측에 대해 선을 그은 것이다.
+
+앞서 지난 2월 한국해양과학기술원(KIOST)과 한국원자력연구원(KAERI)이 발표한 '후쿠시마 오염수 해양 확산 시뮬레이션 결과'에 따르면 
+방류된 삼중수소는 해류를 따라 이동하다 2년 뒤부터 제주를 비롯한 우리나라 해역에 점차 유입되고, 4~5년 뒤부터는 본격적으로 영향을 미칠 것으로 예측됐다.
+
+삼중수소는 오염수에 가장 많이 포함된 방사성 핵종으로, 10년 뒤 농도는 1세제곱미터당 0.001베크렐(Bq/㎥)에 이른다는 결과가 나왔다. 
+0.001Bq은 현재 우리나라 해역에 존재하는 삼중수소 농도의 10만분의 1수준이다.
+
+김경옥 KIOST 책임연구원은 당시 "방출된 오염수는 대개 구로시오 해류를 타고 미국 쪽으로 이동한다"며 
+"이 해류를 거치지 않고 관할 해역에 바로 유입되는 건 특이한 경우인데, 이 역시 고려한 연구 결과"라고 말한 바 있다.
+</span>
+	</pre>
+</body>
+</html>
