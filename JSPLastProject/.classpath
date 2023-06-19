@@ -8,40 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-api-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-api-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-chrome-driver-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-chrome-driver-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-chromium-driver-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-chromium-driver-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v85-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v85-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v112-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v112-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v113-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v113-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v114-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v114-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-edge-driver-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-edge-driver-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-firefox-driver-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-firefox-driver-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-http-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-http-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-ie-driver-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-ie-driver-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-java-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-java-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-json-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-json-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-manager-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-manager-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-remote-driver-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-remote-driver-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-safari-driver-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-safari-driver-4.10.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-support-4.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-support-4.10.0-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/lib/async-http-client-2.12.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/lib/async-http-client-netty-utils-2.12.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/lib/auto-common-1.2.1.jar"/>
@@ -89,5 +55,39 @@
 	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/lib/opentelemetry-semconv-1.26.0-alpha.jar"/>
 	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/lib/reactive-streams-1.0.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/lib/slf4j-api-2.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-api-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-api-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-chrome-driver-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-chrome-driver-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-chromium-driver-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-chromium-driver-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v85-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v85-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v112-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v112-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v113-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v113-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v114-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-devtools-v114-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-edge-driver-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-edge-driver-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-firefox-driver-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-firefox-driver-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-http-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-http-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-ie-driver-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-ie-driver-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-java-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-java-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-json-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-json-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-manager-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-manager-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-remote-driver-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-remote-driver-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-safari-driver-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-safari-driver-4.10.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-support-4.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SIST/Desktop/Sele/selenium-java-4.10.0/selenium-support-4.10.0-sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
