@@ -16,8 +16,14 @@ package com.sist.vo;
 */
 public class ActivityCategoryVO {
 	private int accno;
-	private String name;
+	private String name, link;
 	
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
 	public int getAccno() {
 		return accno;
 	}

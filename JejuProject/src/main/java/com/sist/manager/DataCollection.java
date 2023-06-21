@@ -18,7 +18,7 @@ public class DataCollection {
 	public static String url;
 
 	public static String WEB_DRIVER_ID = "webdriver.firefox.driver";
-	public static String WEB_DRIVER_PATH = "/Users/dyongsong/Desktop/Sele/fire/geckodriver.exe";
+	public static String WEB_DRIVER_PATH = "C:\\Users\\SIST\\Desktop\\Sele\\fire\\geckodriver.exe";
 	
 	public DataCollection() {
 		System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
@@ -31,7 +31,8 @@ public class DataCollection {
 		driver = new FirefoxDriver(option);
 		url = "https://www.myrealtrip.com/offers?t=llp&qct=Jeju&qcr=Korea%2C%20Republic%20of&page=";
 	}
-	
+		//	/html/body/div[4]/div/div/div/div[2]/main/div/div[2]/a[1]  상세보기 페이지 url a태그 href
+		// /html/body/div[4]/div/div/div/div[2]/main/div/div[2]/a[2]
 	public void ActivityInfoData() {
 		ActivityDAO dao=ActivityDAO.newInstance();
 		try {
@@ -39,14 +40,13 @@ public class DataCollection {
 			for (int i = 1; i <= 35; i++) {
 				driver.get(url + i);
 				Thread.sleep(3000);								
-				WebElement title= driver.findElement(By.xpath("/html/body/main/div[3]/div/div[2]/div/article/header/h1"));
-				// By.className
+					// By.className
 
-				String tag1 = "/html/body/div[4]/div/div/div/div[2]/main/div/div[2]/a[";
-				String tag2 = "]/div/div/img";
+				String img1 = "/html/body/div[4]/div/div/div/div[2]/main/div/div[2]/a[";
+				String img2 = "]/div/div/img";
 				
 				for (int j = 1; j <= 24; j++) {
-					WebElement imgElement = driver.findElement(By.xpath(tag1 + j + tag2));
+					WebElement imgElement = driver.findElement(By.xpath(img1 + j + img2));
 					String src = imgElement.getAttribute("src");
 					System.out.println(src);
 				}
@@ -61,6 +61,7 @@ public class DataCollection {
 	
 	
 	public static void main(String[] args) {
-		
+		DataCollection d=new DataCollection();
+		d.ActivityInfoData();
 	}
 }
