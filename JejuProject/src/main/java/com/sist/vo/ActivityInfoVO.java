@@ -7,19 +7,18 @@ package com.sist.vo;
    score           NUMBER(2,1),											-- 평점
    review_count    VARCHAR2(20),										-- 리뷰 갯수
    price           NUMBER,												-- 가격
-   discount_rate VARCHAR2(20),											-- 할인율
    reviewer VARCHAR2(51),												-- 리뷰한 사람
-   review_content VARCHAR2(2000),										-- 리뷰 내용
-   hours_use VARCHAR2(1000),											-- 이용시간
+   review_content VARCHAR2(4000),										-- 리뷰 내용
+   hours_use CLOB,														-- 이용시간
    location_name VARCHAR2(1000),										-- 위치 안내
    location_poster VARCHAR2(300),										-- 위치 지도 사진
-   how_use VARCHAR2(2000),												-- 사용방법
-   poster          VARCHAR2(260) CONSTRAINT aci_poster_nn NOT NULL,		-- 포스터
+   how_use CLOB,														-- 사용방법
+   poster          CLOB CONSTRAINT aci_poster_nn NOT NULL,				-- 포스터
 
 */
 public class ActivityInfoVO {
 	private int acino, accno, price;
-	private String title, discount_rate, reviewer, review_content, hours_use, location_name, location_poster, how_use, poster, review_count;
+	private String title, reviewer, review_content, hours_use, location_name, location_poster, how_use, poster, review_count;
 	private double score;
 	
 	
@@ -59,12 +58,6 @@ public class ActivityInfoVO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getDiscount_rate() {
-		return discount_rate;
-	}
-	public void setDiscount_rate(String discount_rate) {
-		this.discount_rate = discount_rate;
 	}
 	public String getReviewer() {
 		return reviewer;

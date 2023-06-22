@@ -70,20 +70,19 @@ public class ActivityDAO {
 		try {
 			getConnection();
 			String sql="INSERT INTO activity_info VALUES("
-					+ "aci_acino_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?)";
+					+ "aci_acino_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
 			ps.setDouble(2, vo.getScore());
 			ps.setString(3, vo.getReview_count());
 			ps.setInt(4, vo.getPrice());
-			ps.setString(5, vo.getDiscount_rate());
-			ps.setString(6, vo.getReviewer());
-			ps.setString(7, vo.getReview_content());
-			ps.setString(8, vo.getHours_use());
-			ps.setString(9, vo.getLocation_name());
-			ps.setString(10, vo.getLocation_poster());
-			ps.setString(11, vo.getHow_use());
-			ps.setString(12, vo.getPoster());
+			ps.setString(5, vo.getReviewer());
+			ps.setString(6, vo.getReview_content());
+			ps.setString(7, vo.getHours_use());
+			ps.setString(8, vo.getLocation_name());
+			ps.setString(9, vo.getLocation_poster());
+			ps.setString(10, vo.getHow_use());
+			ps.setString(11, vo.getPoster());
 			ps.executeUpdate();
 			
 		} catch (Exception e) {
@@ -99,7 +98,7 @@ public class ActivityDAO {
 		try {
 			getConnection();
 			String sql="SELECT /*+ INDEX_ASC(activity_info aci_acino_pk)*/acino, title, score, review_count,"
-					+ " price, discount_rate, reviewer, review_content, "
+					+ " price, reviewer, review_content, "
 					+ " hours_use, location_name, location_poster, how_use, poster "
 					+ "FROM activity_info";
 			ps=conn.prepareStatement(sql);
@@ -112,13 +111,12 @@ public class ActivityDAO {
 				vo.setScore(rs.getDouble(3));
 				vo.setReview_count(rs.getString(4));
 				vo.setPrice(rs.getInt(5));
-				vo.setDiscount_rate(rs.getString(6));
-				vo.setReviewer(rs.getString(7));
-				vo.setReview_content(rs.getString(8));
-				vo.setHours_use(rs.getString(9));
-				vo.setLocation_name(rs.getString(10));
-				vo.setLocation_poster(rs.getString(11));
-				String poster=rs.getString(12);
+				vo.setReviewer(rs.getString(6));
+				vo.setReview_content(rs.getString(7));
+				vo.setHours_use(rs.getString(8));
+				vo.setLocation_name(rs.getString(9));
+				vo.setLocation_poster(rs.getString(10));
+				String poster=rs.getString(11);
 				poster=poster.replace("#", "&");
 				vo.setPoster(poster);
 				list.add(vo);
