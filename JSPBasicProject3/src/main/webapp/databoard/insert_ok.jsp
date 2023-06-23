@@ -25,8 +25,11 @@
 	vo.setSubject(subject);
 	vo.setContent(content);
 	vo.setPwd(pwd);
-	
-	String filename=mr.getOriginalFileName("upload");
+	// 오리지널 파일은 사용자가 보내준 파일
+//	String filename=mr.getOriginalFileName("upload");
+	// 밑이 실제 저장된 파일
+	String filename=mr.getFilesystemName("upload");
+
 	if(filename==null){		// 업로드가 안된 상태
 		vo.setFilename("");
 		vo.setFilesize(0);

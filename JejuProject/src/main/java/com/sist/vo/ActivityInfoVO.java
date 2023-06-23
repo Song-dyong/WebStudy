@@ -18,10 +18,16 @@ package com.sist.vo;
 */
 public class ActivityInfoVO {
 	private int acino, accno, price;
-	private String title, reviewer, review_content, hours_use, location_name, location_poster, how_use, poster, review_count;
+	private String title, reviewer, review_content, hours_use, location_name, location_poster, how_use, poster, review_count, main_poster;
 	private double score;
 	
 	
+	public String getMain_poster() {
+		return main_poster;
+	}
+	public void setMain_poster(String main_poster) {
+		this.main_poster = main_poster;
+	}
 	public double getScore() {
 		return score;
 	}

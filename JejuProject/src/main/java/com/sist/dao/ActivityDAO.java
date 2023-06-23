@@ -70,19 +70,36 @@ public class ActivityDAO {
 		try {
 			getConnection();
 			String sql="INSERT INTO activity_info VALUES("
-					+ "aci_acino_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+					+ "aci_acino_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			/*
+   title           VARCHAR2(1000) CONSTRAINT aci_title_nn NOT NULL,
+   score           NUMBER(2,1),
+   review_count    VARCHAR2(100),
+   price           NUMBER,
+   reviewer VARCHAR2(51),
+   review_content VARCHAR2(4000),
+   hours_use CLOB,
+   location_name VARCHAR2(1000),
+   location_poster VARCHAR2(300),
+   how_use CLOB,
+   poster  CLOB,
+   main_poster VARCHAR2(300),
+			
+			*/
 			ps=conn.prepareStatement(sql);
-			ps.setString(1, vo.getTitle());
-			ps.setDouble(2, vo.getScore());
-			ps.setString(3, vo.getReview_count());
-			ps.setInt(4, vo.getPrice());
-			ps.setString(5, vo.getReviewer());
-			ps.setString(6, vo.getReview_content());
-			ps.setString(7, vo.getHours_use());
-			ps.setString(8, vo.getLocation_name());
-			ps.setString(9, vo.getLocation_poster());
-			ps.setString(10, vo.getHow_use());
-			ps.setString(11, vo.getPoster());
+			ps.setInt(1, vo.getAccno());
+			ps.setString(2, vo.getTitle());
+			ps.setDouble(3, vo.getScore());
+			ps.setString(4, vo.getReview_count());
+			ps.setInt(5, vo.getPrice());
+			ps.setString(6, vo.getReviewer());
+			ps.setString(7, vo.getReview_content());
+			ps.setString(8, vo.getHours_use());
+			ps.setString(9, vo.getLocation_name());
+			ps.setString(10, vo.getLocation_poster());
+			ps.setString(11, vo.getHow_use());
+			ps.setString(12, vo.getPoster());
+			ps.setString(13, vo.getMain_poster());
 			ps.executeUpdate();
 			
 		} catch (Exception e) {
@@ -99,7 +116,7 @@ public class ActivityDAO {
 			getConnection();
 			String sql="SELECT /*+ INDEX_ASC(activity_info aci_acino_pk)*/acino, title, score, review_count,"
 					+ " price, reviewer, review_content, "
-					+ " hours_use, location_name, location_poster, how_use, poster "
+					+ " hours_use, location_name, location_poster, how_use, poster, main_poster "
 					+ "FROM activity_info";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
@@ -119,6 +136,9 @@ public class ActivityDAO {
 				String poster=rs.getString(11);
 				poster=poster.replace("#", "&");
 				vo.setPoster(poster);
+				String main_poster=rs.getString(12);
+				main_poster=main_poster.replace("#", "&");
+				vo.setMain_poster(main_poster);
 				list.add(vo);
 			}
 			rs.close();
