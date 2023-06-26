@@ -163,6 +163,7 @@ public class DataCollection2 {
 						}
 					}
 					avo.setHours_use(hours_use != null ? hours_use.getText() : "no");
+					
 
 					WebElement location_name = findElementWithFallback(driver,
 							By.xpath("/html/body/main/div[3]/div/div[2]/div/article/section[6]/div/div/div[2]/div/p"));
@@ -205,9 +206,7 @@ public class DataCollection2 {
 					}
 					avo.setHow_use(how_use != null ? how_use.getText() : "no");
 					
-					count++;
-					gg++;
-					if(gg>24) gg=1;
+					
 					System.out.println(i + "번째 게시물");
 					System.out.println("제목: " + avo.getTitle());
 					System.out.println("평점: " + avo.getScore());
@@ -223,6 +222,9 @@ public class DataCollection2 {
 					System.out.println("메인포스터: " + avo.getMain_poster());
 					System.out.println("총 갯수: " + count);
 					dao.activityInfoInsert(avo);
+					count++;
+					gg++;
+					if(gg>24) gg=1;
 					System.out.println("-------------------------------------------------------------------------");
 					driver.navigate().back(); // 이전 페이지로 돌아감
 					Thread.sleep(500);
