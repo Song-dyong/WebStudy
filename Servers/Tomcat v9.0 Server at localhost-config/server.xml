@@ -162,10 +162,12 @@
 
       
       
-      <Context docBase="JQueryProject1" path="/JQueryProject1" reloadable="true" source="org.eclipse.jst.jee.server:JQueryProject1">
+      
+      <Context docBase="JSPTemplatePractice2" path="/JSPTemplatePractice2" reloadable="true" source="org.eclipse.jst.jee.server:JSPTemplatePractice2"/>
+      <Context docBase="JSPBasicProject6" path="/JSPBasicProject6" reloadable="true" source="org.eclipse.jst.jee.server:JSPBasicProject6">
       <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="hr"/>
       </Context>
-      <Context docBase="JSPTemlplateProject" path="/JSPTemlplateProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPTemlplateProject"/><Context docBase="JSPTemplatePractice1" path="/JSPTemplatePractice1" reloadable="true" source="org.eclipse.jst.jee.server:JSPTemplatePractice1"/></Host>
+      <Context docBase="JSPMiddleProject1" path="/JSPMiddleProject1" reloadable="true" source="org.eclipse.jst.jee.server:JSPMiddleProject1"/></Host>
     </Engine>
   </Service>
 </Server>
