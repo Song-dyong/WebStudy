@@ -163,13 +163,17 @@
       
       
       
-      <Context docBase="JSPTemplatePractice2" path="/JSPTemplatePractice2" reloadable="true" source="org.eclipse.jst.jee.server:JSPTemplatePractice2"/>
-      <Context docBase="JSPBasicProject6" path="/JSPBasicProject6" reloadable="true" source="org.eclipse.jst.jee.server:JSPBasicProject6">
-      <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="hr"/>
+      
+      
+      
+      
+      <Context docBase="JSPMiddelProject3" path="/JSPMiddelProject3" reloadable="true" source="org.eclipse.jst.jee.server:JSPMiddelProject3"/>
+      <Context docBase="JSPMiddleProject4" path="/JSPMiddleProject4" reloadable="true" source="org.eclipse.jst.jee.server:JSPMiddleProject4">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="hr"/>
       </Context>
-      <Context docBase="JSPMiddleProject1" path="/JSPMiddleProject1" reloadable="true" source="org.eclipse.jst.jee.server:JSPMiddleProject1"/>
-      <Context docBase="JSPMiddleProject2" path="/JSPMiddleProject2" reloadable="true" source="org.eclipse.jst.jee.server:JSPMiddleProject2">
-            <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="hr"/>
+      <Context docBase="JSPTemplatePractice2" path="/JSPTemplatePractice2" reloadable="true" source="org.eclipse.jst.jee.server:JSPTemplatePractice2"/>
+      <Context docBase="JSPMiddleProject5" path="/JSPMiddleProject5" reloadable="true" source="org.eclipse.jst.jee.server:JSPMiddleProject5">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="hr"/>
       </Context>
       </Host>
     </Engine>
