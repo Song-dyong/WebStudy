@@ -17,7 +17,7 @@ public class JejuMain {
 	                    Elements containers = doc.select(".pl-vertical-container.pl-light-timeline.pl-center-orientation");
 	                    int dayCount = 1;
 	                    for (Element container : containers) 
-	                    {
+	                    { 
 	                        Elements titles = container.select(".btn-pl-product-detail");
 	                        System.out.println("\nDay " + dayCount);
 	                        for (Element title : titles) {

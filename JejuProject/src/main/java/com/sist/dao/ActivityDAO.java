@@ -12,7 +12,7 @@ import com.sist.vo.*;
 public class ActivityDAO {
 	private Connection conn;
 	private PreparedStatement ps;
-	private final String URL = "jdbc:oracle:thin:@211.238.142.124:1521:xe";
+	private final String URL = "jdbc:oracle:thin:@211.238.142.122:1521:xe";
 
 	private static ActivityDAO dao;
 

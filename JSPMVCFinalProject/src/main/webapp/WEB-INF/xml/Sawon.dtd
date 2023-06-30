@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	<sawon>						=> table	(문서형 데이터베이스)
+		<list>					=> row
+			<name></name>		=> column
+			<sex></sex>			=> column
+			<phone></phone>		=> column
+		</list>					
+		<list>
+			<name></name>
+			<sex></sex>
+			<phone></phone>
+		</list>
+		<list>
+			<name></name>
+			<sex></sex>
+			<tel></tel>
+		</list>
+	</sawon>
+	
+		기호
+		  1. * : 0번 이상 사용 가능
+		  2. + : 1번 이상 사용 가능 (반드시 1번 이상 사용)
+		  3. ? : 사용 안해도 가능
+		  4. | : 선택
+		  5. def : 1번만 사용 가능
+		  6. #PCDATA = 태그와 태그 사이에 문자열 사용
+	
+ -->
+<!ELEMENT sawon (list)*>
+<!ELEMENT list (name,sex,(phone|tel))>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT sex (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT tel (#PCDATA)>
