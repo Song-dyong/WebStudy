@@ -46,8 +46,8 @@ public class DataCollection2 {
 			int count = 0;
 			for (ActivityCategoryVO vo : list) {
 
-				driver.get(url + vo.getLink());
-				Thread.sleep(500);
+				driver.get(url + vo.getLink()+"&page=2");
+				Thread.sleep(1000);
 				// linkElements => 카테고리의 페이지별 24개의 카드 url
 
 				List<WebElement> linkElements = driver
@@ -89,7 +89,7 @@ public class DataCollection2 {
 						if (avo.getTitle().equals("no")) {
 							System.out.println("제목이 없어요!!!");
 							driver.navigate().back(); // 이전 페이지로 돌아감
-							Thread.sleep(500);
+							Thread.sleep(1000);
 							continue; // 다음 반복으로 진행
 						}
 
@@ -225,7 +225,7 @@ public class DataCollection2 {
 						count++;
 						System.out.println("-------------------------------------------------------------------------");
 						driver.navigate().back(); // 이전 페이지로 돌아감
-						Thread.sleep(500);
+						Thread.sleep(1000);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

@@ -44,7 +44,7 @@
  -->
  
  <beans>
- 	<bean id="board" class="com.sist.model.BoardModel"/>
+   <bean id="board" class="com.sist.model.BoardModel"/>
  </beans>
  
  

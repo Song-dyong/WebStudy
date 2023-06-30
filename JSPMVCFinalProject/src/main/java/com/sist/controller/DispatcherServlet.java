@@ -87,7 +87,7 @@ public class DispatcherServlet extends HttpServlet {
 			URL url=this.getClass().getClassLoader().getResource(".");
 			File file=new File(url.toURI());
 			//System.out.println(file.getPath());
-			String path=file.getPath();
+			String path=file.getPath();	
 			//System.out.println("1. "+path);
 			path=path.replace("\\", File.separator);
 			//System.out.println("2. "+path);
@@ -115,6 +115,7 @@ public class DispatcherServlet extends HttpServlet {
 				String id=bean.getAttribute("id");
 				String cls=bean.getAttribute("class");
 				System.out.println(id+": "+cls);
+				clsList.add(cls);
 			}
 			
 			
@@ -133,7 +134,7 @@ public class DispatcherServlet extends HttpServlet {
 		// request.getContextPath().length()+1 =>  food/category.do
 		for(String cls:clsList) {
 			// Class 정보 읽기 => 리플렉션
-			Class clsName=Class.forName(cls);
+			Class<?> clsName=Class.forName(cls);
 			// 메모리 할당
 			Object obj=clsName.getDeclaredConstructor().newInstance();
 			// 메소드 읽기		clsName에 선언된 모든 메소드 가져오기 
@@ -141,7 +142,7 @@ public class DispatcherServlet extends HttpServlet {
 			for(Method m:methods) {
 				RequestMapping rm=m.getAnnotation(RequestMapping.class);
 				if(rm.value().equals(path)) {
-					String jsp=(String)m.invoke(obj, request,response);
+					String jsp=(String)m.invoke(obj, request, response);
 					if(jsp==null) {	// return이 void일 경우	=> ajax에서 사용 多
 						return;
 					}else if(jsp.startsWith("redirect:")) {
