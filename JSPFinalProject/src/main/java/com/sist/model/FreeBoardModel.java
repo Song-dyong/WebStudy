@@ -1,4 +1,5 @@
 package com.sist.model;
+import java.io.PrintWriter;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -62,6 +63,74 @@ public class FreeBoardModel {
 		
 		
 		return "redirect:../board/list.do";
+	}
+	// 상세보기
+	// JSP DispatcherServlet Model DispatcherServlet JSP
+	// Model : Model / DAO / VO
+	
+	@RequestMapping("board/detail.do")
+	public String board_detail(HttpServletRequest request, HttpServletResponse response) {
+		
+		String no=request.getParameter("no");
+		FreeBoardDAO dao=FreeBoardDAO.newInstance();
+		FreeBoardVO vo=dao.freeboardDetailData(Integer.parseInt(no));
+		
+		request.setAttribute("vo", vo);
+		request.setAttribute("main_jsp", "..board/detail.jsp");
+		
+		return "../main/main.jsp";
+	}
+	
+	// AJAX 
+	@RequestMapping("board/delete.do")
+	public void board_delete(HttpServletRequest request, HttpServletResponse response) {
+		String no=request.getParameter("no");
+		String pwd=request.getParameter("pwd");
+		
+		FreeBoardDAO dao=FreeBoardDAO.newInstance();
+		String res=dao.freeboardDelete(Integer.parseInt(no), pwd);
+		
+		try {
+			PrintWriter out=response.getWriter();
+			out.println(res);	// ajax에서 읽어서 처리 
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	@RequestMapping("board/update.do")
+	public String board_update(HttpServletRequest request, HttpServletResponse response) {
+		
+		String no=request.getParameter("no");
+		FreeBoardDAO dao=FreeBoardDAO.newInstance();
+		FreeBoardVO vo=dao.freeboardUpdateData(Integer.parseInt(no));
+		
+		request.setAttribute("vo", vo);
+		request.setAttribute("main_jsp", "../board/update.jsp");
+		
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("board/update_ok.do")
+	public String board_update_ok(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (Exception e) {}
+		
+		FreeBoardVO vo=new FreeBoardVO();
+		vo.setName(request.getParameter("name"));
+		vo.setSubject(request.getParameter("subject"));
+		vo.setContent(request.getParameter("content"));
+		vo.setPwd(request.getParameter("pwd"));
+		vo.setNo(Integer.parseInt(request.getParameter("no")));
+		
+		FreeBoardDAO dao=FreeBoardDAO.newInstance();
+		boolean bCheck=dao.freeboardUpdate(vo);
+		
+		request.setAttribute("bCheck", bCheck);
+		request.setAttribute("no", vo.getNo());
+		return "../board/update_ok.jsp";
 	}
 	
 }

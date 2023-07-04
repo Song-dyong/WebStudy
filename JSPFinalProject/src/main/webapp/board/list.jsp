@@ -13,6 +13,7 @@
 <div class="wrapper row3">
 		<main class="container clear">
 		<h2 class="sectiontitle">자유게시판</h2>
+		<div style="height:450px">
 		<table class="table">
 			<tr>
 				<td>
@@ -31,13 +32,14 @@
 			<c:forEach var="vo" items="${list }">
 				<tr>
 					<td width=10% class=text-center>${vo.no }</td>
-					<td width=45%>${vo.subject }</td>
+					<td width=45%><a href="../board/detail.do?no=${vo.no}">${vo.subject }</a></td>
 					<td width=15% class=text-center>${vo.name }</td>
 					<td width=20% class=text-center>${vo.dbday }</td>
 					<td width=10% class=text-center>${vo.hit }</td>
 				</tr>
 			</c:forEach>
 		</table>
+		</div>
 		</main>
 	</div>
 </body>
