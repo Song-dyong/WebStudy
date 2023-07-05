@@ -9,6 +9,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="../layout/styles/layout.css" rel="stylesheet"
 	type="text/css" media="all">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d083c9d550235410fca470511de91b0&libraries=services"></script>
 </head>
 <body id="top">
 

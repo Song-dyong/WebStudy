@@ -73,7 +73,7 @@
 				</li>
 			</ul>
 			<!-- ################################################################################################ -->
-			<h2 class="sectiontitle">지역별 맛집 리스트</h2>
+			<h2 class="sectiontitle">믿고 보는 맛집 리스트</h2>
 			<!-- ################################################################################################ -->
 			<div class="flexslider carousel basiccarousel btmspace-80">
 				<ul class="slides">
@@ -84,7 +84,7 @@
 							<img class="radius-10 btmspace-10"
 								src="${vo.poster }" alt="">
 							<figcaption>
-								<a href="#">${vo.title }</a>
+								<a href="../food/food_category_list.do?cno=${vo.cno }">${vo.title }</a>
 							</figcaption>
 						</figure>
 					</li>
@@ -94,7 +94,7 @@
 				</ul>
 			</div>
 			
-			<h2 class="sectiontitle">메뉴별 인기 맛집</h2>
+			<h2 class="sectiontitle">지역별 인기 맛집</h2>
 			<!-- ################################################################################################ -->
 			<div class="flexslider carousel basiccarousel btmspace-80">
 				<ul class="slides">
@@ -105,7 +105,7 @@
 							<img class="radius-10 btmspace-10"
 								src="${vo.poster }" alt="">
 							<figcaption>
-								<a href="#">${vo.title }</a>
+								<a href="../food/food_category_list.do?cno=${vo.cno }">${vo.title }</a>
 							</figcaption>
 						</figure>
 					</li>
@@ -124,7 +124,7 @@
 							<img class="radius-10 btmspace-10"
 								src="${vo.poster }" alt="">
 							<figcaption>
-								<a href="#">${vo.title }</a>
+								<a href="../food/food_category_list.do?cno=${vo.cno }">${vo.title }</a>
 							</figcaption>
 						</figure>
 					</li>
@@ -184,32 +184,25 @@
 				</ul>
 			</div>
 			<!-- ################################################################################################ -->
-			<h2 class="sectiontitle">Lorem Ipsum Dolor</h2>
+			<h2 class="sectiontitle">최근 방문 맛집</h2>
 			<!-- ################################################################################################ -->
-			<ul class="nospace group">
-				<li class="one_half first">
-					<article>
-						<img class="imgl radius-10" src="../images/demo/100x100.gif"
-							alt="">
-						<h6 class="heading">
-							<a href="#">Lorem Ipsum Dolor</a>
-						</h6>
-						<p>Aenean semper elementum tellus, ut placerat leo. Quisque
-							vehicula, urna sit amet.</p>
-					</article>
-				</li>
-				<li class="one_half">
-					<article>
-						<img class="imgl radius-10" src="../images/demo/100x100.gif"
-							alt="">
-						<h6 class="heading">
-							<a href="#">Lorem Ipsum Dolor</a>
-						</h6>
-						<p>Aenean semper elementum tellus, ut placerat leo. Quisque
-							vehicula, urna sit amet.</p>
-					</article>
-				</li>
-			</ul>
+			<div class="flexslider carousel basiccarousel btmspace-80">
+				<ul class="slides">
+					<c:forEach var="vo" items="${cList }" varStatus="s">
+					<c:if test="${s.index>=0 && s.index<12 }">
+					<li>
+						<figure>
+							<img class="radius-10 btmspace-10"
+								src="${vo.poster }">
+							<figcaption>
+								<a href="../food/food_detail.do?fno=${vo.fno }">${vo.name }</a>
+							</figcaption>
+						</figure>
+					</li>
+					</c:if>
+					</c:forEach>
+				</ul>
+			</div>
 			<!-- ################################################################################################ -->
 			<!-- / main body -->
 			<div class="clear"></div>

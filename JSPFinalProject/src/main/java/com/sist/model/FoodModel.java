@@ -1,8 +1,10 @@
 package com.sist.model;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sist.common.CommonModel;
 import com.sist.controller.RequestMapping;
 import java.util.*;
 import com.sist.dao.*;
@@ -50,6 +52,7 @@ public class FoodModel {
 		request.setAttribute("fd", fd);
 		
 		request.setAttribute("main_jsp", "../food/location_find.jsp");
+		CommonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
 	/*
@@ -120,7 +123,51 @@ public class FoodModel {
 		// 출력할 JSP로 데이터 전송 
 		// HttpServletRequest request,HttpServletResponse response
 		// --> DispatcherServlet의 request, response
+		// 디스패처가 가지고 있는 리퀘스트를 모델로 (매개변수로) 보내면, 거기서 값을 채워준 뒤, 디스패처(컨트롤러)로 이동시킴 =>이 리퀘스트를 다시 뷰로 보내주면
+		//  MVC구조 
+		request.setAttribute("cvo", cvo);
+		request.setAttribute("list", list);
+		// 전송 => return에 있는 jsp가 받는다.
+		// include시에는 include된 모든 jsp에서 사용 가능 (request 공유)
 		request.setAttribute("main_jsp", "../food/food_category_list.jsp");
+		CommonModel.commonRequestData(request);
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("food/food_detail_before.do")	// cookie저장용 메소드
+	public String food_detail_before(HttpServletRequest request,HttpServletResponse response) {
+		
+		// Cookie 생성
+		String fno=request.getParameter("fno");
+		Cookie cookie = new Cookie("food_"+fno, fno);
+		// 쿠키의 단점 : 문자열만 저장 가능 => 요청한 사용자의 브라우저로 전송.
+		cookie.setPath("/");
+		cookie.setMaxAge(60*60*24);
+		response.addCookie(cookie);
+		return "redirect:../food/food_detail.do?fno="+fno;
+	}
+	/*
+		회원가입 /로그인 => main.do
+		예약 , 장바구니 , 결제 => mypage.do
+	
+	*/
+	@RequestMapping("food/food_detail.do")
+	public String food_detail(HttpServletRequest request, HttpServletResponse response)
+	{
+		String fno=request.getParameter("fno");
+		// DAO 연결
+		FoodDAO dao=FoodDAO.newInstance();
+		// 결과 request에 담기 (setAttribute())
+		FoodVO vo=dao.foodDetailData(Integer.parseInt(fno));
+		request.setAttribute("vo", vo);
+		String address=vo.getAddress();
+		String addr1=address.substring(0,address.indexOf("지번"));
+		String addr2=address.substring(address.indexOf("지번")+3);
+		request.setAttribute("addr1", addr1.trim());
+		request.setAttribute("addr2", addr2.trim());
+		// 인근 명소 , 레시피 ... 나중에 ~ 
+		request.setAttribute("main_jsp", "../food/food_detail.jsp");
+		CommonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
 	
