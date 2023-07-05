@@ -137,6 +137,7 @@ public class MemberDAO {
 			conn=db.getConnection();
 			String sql="INSERT INTO project_member VALUES("
 					+ "?,?,?,?,?,?,?,?,?,?,?,'n',SYSDATE)";
+			ps=conn.prepareStatement(sql);
 			ps.setString(1, vo.getId());
 			ps.setString(2, vo.getPwd());
 			ps.setString(3, vo.getName());
