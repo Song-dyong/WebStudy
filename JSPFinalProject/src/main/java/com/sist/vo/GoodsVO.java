@@ -1,9 +1,23 @@
 package com.sist.vo;
 
 public class GoodsVO {
-	private int no,goods_discount,hit;
+	private int no,goods_discount,hit,account, price;
 	private String goods_name,goods_sub,goods_price,goods_first_price,goods_delivery,goods_poster;
 	
+	
+	
+	public int getAccount() {
+		return account;
+	}
+	public void setAccount(int account) {
+		this.account = account;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public int getNo() {
 		return no;
 	}

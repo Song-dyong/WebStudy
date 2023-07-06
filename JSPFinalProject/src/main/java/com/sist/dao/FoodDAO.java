@@ -221,6 +221,8 @@ public class FoodDAO {
 			rs.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			
 		}finally {
 			db.disConnection(conn, ps);
 		}
