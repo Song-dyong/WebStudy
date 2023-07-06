@@ -76,10 +76,10 @@ public class GoodsDAO2 {
 	public static void main(String[] args) {
 		GoodsDAO2 dao=new GoodsDAO2();
 		// best, new, special => 3번 바꿔서 실행하기;; 
-		List<Integer> list=dao.goodsGetNoData("goods_all");
+		List<Integer> list=dao.goodsGetNoData("goods_special");
 		for(int no:list) {
 			int account=(int)(Math.random()*50)+11;
-			dao.goodsAccountInsert(account, no, "goods_all");
+			dao.goodsAccountInsert(account, no, "goods_special");
 		}
 		System.out.println("Clear!");
 		
