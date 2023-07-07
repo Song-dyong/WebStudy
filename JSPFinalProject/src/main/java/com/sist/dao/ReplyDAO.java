@@ -114,7 +114,7 @@ public class ReplyDAO {
 	public void replyDelete(int no) {
 		try {
 			conn=db.getConnection();
-			String sql="{CALL replyUpdate(?)}";
+			String sql="{CALL replyDelete(?)}";
 			cs=conn.prepareCall(sql);
 			cs.setInt(1, no);
 			cs.executeQuery();

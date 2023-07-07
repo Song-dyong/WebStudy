@@ -15,6 +15,27 @@
 	width: 960px;
 }
 </style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let i=0;	// 전역변수
+$(function(){
+	$('.ups').click(function(){	// 수정버튼 클릭 (span)
+		$('.updates').hide();
+		$('.ups').text('수정');
+		let no=$(this).attr("data-no");
+		if(i===0){
+			$(this).text("취소");
+			$('#u'+no).show();
+			i=1;
+		}
+		else{
+			$(this).text("수정");
+			$('#u'+no).hide();
+			i=0;
+		}
+	})
+})
+</script>
 </head>
 <body>
 	<div class="wrapper row3">
@@ -102,8 +123,8 @@
 										</td>
 										<td class="text-right">
 											<c:if test="${sessionScope.id==rvo.id }">
-												<a href="../reply/reply_update.do?no=${rvo.no }" class="btn btn-xs btn-danger">수정</a>
-												<a href="../reply/reply_delete.do" class="btn btn-xs btn-primary">삭제</a>
+												<span class="btn btn-xs btn-danger ups" data-no="${rvo.no }">수정</span>
+												<a href="../reply/reply_delete.do?no=${rvo.no }&type=${rvo.type}&cno=${rvo.cno}" class="btn btn-xs btn-primary">삭제</a>
 											</c:if>
 										</td>
 									</tr>
@@ -113,12 +134,13 @@
 										</td>
 									</tr>
 									<%-- 수정 폼 --%>
-									<tr colspan="2">
-										<td>
-										<form method="post" action="../reply/reply_insert.do">
+									<tr style="display:none" class="updates" id="u${rvo.no }">
+										<td colspan="2">
+										<form method="post" action="../reply/reply_update.do">
+											<input type="hidden" name=no value="${rvo.no }">
 											<input type="hidden" name="cno" value="${vo.fno }">
 											<input type="hidden" name="type" value="1">
-											<textarea rows="5" cols="50" name="msg" style="float: left">${rvo.msg }</textarea>
+											<textarea rows="5" cols="60" name="msg" style="float: left">${rvo.msg }</textarea>
 											<input type="submit" value="댓글수정" 
 											style="width:120px;height:104px; background-color: green; color:white">
 										</form>

@@ -26,7 +26,7 @@ public class MemberModel {
 	public String memberIdCheck(HttpServletRequest request, HttpServletResponse response) {
 		return "../member/idcheck.jsp";
 	}
-	@RequestMapping("member/idcheck.do")
+	@RequestMapping("member/idcheck_ok.do")
 	public void memberIdCheckOk(HttpServletRequest request, HttpServletResponse response) {
 		String id=request.getParameter("id");	// ajax의 data에 설정한값과 동일한 값을 넣어주어야한다	
 		

@@ -51,4 +51,22 @@ public class ReplyModel {
 		return "redirect:"+url[Integer.parseInt(type)]+"?fno="+cno;
 	}
 	
+	@RequestMapping("reply/reply_update.do")
+	public String reply_update(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (Exception e) {}
+		
+		String no=request.getParameter("no");
+		String type=request.getParameter("type");
+		String cno=request.getParameter("cno");
+		String msg=request.getParameter("msg");
+		
+		ReplyDAO dao=ReplyDAO.newInstance();
+		dao.replyUpdate(Integer.parseInt(no), msg);
+		
+		return "redirect:"+url[Integer.parseInt(type)]+"?fno="+cno;
+	}
+	
 }
