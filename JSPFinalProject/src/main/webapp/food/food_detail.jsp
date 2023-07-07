@@ -146,7 +146,7 @@
 				</c:if>
 			</div>
 			<%--
-					1차 프로젝트
+					1차 프로젝트ff
 						1) MVC 구조에 대한 이해
 						2) DataBase 최대한 활용
 							JDBC => DBCP => ORM(MyBatis)
