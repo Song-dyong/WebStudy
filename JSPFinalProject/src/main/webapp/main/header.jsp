@@ -8,48 +8,51 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$(function(){
-	
-	$('#logoutBtn').click(function(){
-		location.href="../member/logout.do"
-	})
-	
-	$('#logBtn').click(function(){
-		// 유효성 검사. => 반드시 입력이 되도록 만듦
-		let id=$('#id').val();
-		if(id.trim()==""){
-			$('#id').focus();
-			return;
-		}
-		let pwd=$('#pwd').val();
-		if(pwd.trim()==""){
-			$('#pwd').focus();
-			return;
-		}
-												//비동기적 자바스크립트 앤드 엑스엠엘 
-		// 전송 => 실행결과를 가지고 온다. (자체처리) (요청 = 응답 동시처리 => 에이젝스, 뷰, 리엑트 )
-		$.ajax({
-			type:'post',
-			url:'../member/login.do',
-			date:{"id":id,"pwd":pwd},
-			success:function(result){	// NOID, NOPWD, OK
-				let res=result.trim();
-				if(res==='NOID'){
-					alert("아이디가 존재하지 않습니다!")
-					$('#id').val("");
-					$('#pwd').val("");
-					$('#id').focus();
-				}else if(res==='NOPWD'){
-					alert("PWD ERROR")
-					$('#pwd').val("");
-					$('#pwd').focus();
-				}else{
-					location.href="../main/main.do"
-				}
+	$(function() {
+		$('#logoutBtn').click(function() {
+			location.href = "../member/logout.do";
+		})
+		$('#logBtn').click(function() {
+			// 유효성 검사 => 반드시 입력
+			let id = $('#id').val();
+			if (id.trim() == "") {
+				$('#id').focus();
+				return;
 			}
+
+			let pwd = $('#pwd').val();
+			if (pwd.trim() == "") {
+				$('#pwd').focus();
+				return;
+			}
+
+			// 전송 => 실행결과를 가지고 온다 (자체 처리) (요청 = 응답 : Ajax,Vue,React)
+			$.ajax({
+				type : 'post',
+				url : '../member/login.do',
+				data : {
+					"id" : id,
+					"pwd" : pwd
+				},
+				success : function(result)//NOID,NOPWD,OK
+				{
+					let res = result.trim();
+					if (res === 'NOID') {
+						alert("아이디가 존재하지 않습니다!");
+						$('#id').val("");
+						$('#pwd').val("");
+						$('#id').focus();
+					} else if (res === 'NOPWD') {
+						alert("비밀번호가 틀립니다!")
+						$('#pwd').val("");
+						$('#pwd').focus();
+					} else {
+						location.href = "../main/main.do"
+					}
+				}
+			})
 		})
 	})
-})
 </script>
 </head>
 <body>
@@ -69,7 +72,7 @@ $(function(){
 						<li><i class="fa fa-envelope-o"></i> <input type=password
 							name=pwd class="input-sm" size=10 id=pwd></li>
 						<li><input type=button value="로그인"
-							class="btn btn-sm btn-danger" id=logBtn></li>
+							class="btn btn-sm btn-danger" id="logBtn"></li>
 					</ul>
 				</c:if>
 
@@ -78,7 +81,7 @@ $(function(){
 						<li>${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반사용자" })
 							님 로그인중입니다</li>
 						<li><input type=button value="로그아웃"
-							class="btn btn-sm btn-danger" id=logoutBtn></li>
+							class="btn btn-sm btn-danger" id="logoutBtn"></li>
 					</ul>
 				</c:if>
 			</div>

@@ -70,5 +70,59 @@ public class ReplyDAO {
 			db.disConnection(conn, cs);
 		}
 	}
-	
+	/*
+		CREATE OR REPLACE PROCEDURE replyUpdate(
+    pNo reply_all.no%type,
+    pMsg reply_all.msg%type
+	)
+	IS
+	BEGIN
+	    UPDATE reply_all SET
+	    msg=pMsg
+	    WHERE no=pNo;
+	    COMMIT;
+	END;
+	/
+	-- 삭제하기 
+	CREATE OR REPLACE PROCEDURE replyDelete(
+	    pNo reply_all.no%type
+	)
+	IS
+	BEGIN
+	    DELETE FROM reply_all
+	    WHERE no=pNo;
+	    COMMIT;
+	END;
+	/
+	*/	
+	// 수정
+	public void replyUpdate(int no, String msg) {
+		try {
+			conn=db.getConnection();
+			String sql="{CALL replyUpdate(?,?)}";
+			cs=conn.prepareCall(sql);
+			cs.setInt(1, no);
+			cs.setString(2, msg);
+			cs.executeQuery();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.disConnection(conn, cs);
+		}
+		
+	}
+	public void replyDelete(int no) {
+		try {
+			conn=db.getConnection();
+			String sql="{CALL replyUpdate(?)}";
+			cs=conn.prepareCall(sql);
+			cs.setInt(1, no);
+			cs.executeQuery();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.disConnection(conn, cs);
+		}
+		
+	}
 }

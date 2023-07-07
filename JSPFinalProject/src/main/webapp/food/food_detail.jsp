@@ -102,14 +102,26 @@
 										</td>
 										<td class="text-right">
 											<c:if test="${sessionScope.id==rvo.id }">
-												<a href="#" class="btn btn-xs btn-danger">수정</a>
-												<a href="#" class="btn btn-xs btn-primary">삭제</a>
+												<a href="../reply/reply_update.do?no=${rvo.no }" class="btn btn-xs btn-danger">수정</a>
+												<a href="../reply/reply_delete.do" class="btn btn-xs btn-primary">삭제</a>
 											</c:if>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="2" valign="top" class="text-left">
 										<pre style="white-space: pre-wrap;background-color: white;border: none">${rvo.msg }</pre>
+										</td>
+									</tr>
+									<%-- 수정 폼 --%>
+									<tr colspan="2">
+										<td>
+										<form method="post" action="../reply/reply_insert.do">
+											<input type="hidden" name="cno" value="${vo.fno }">
+											<input type="hidden" name="type" value="1">
+											<textarea rows="5" cols="50" name="msg" style="float: left">${rvo.msg }</textarea>
+											<input type="submit" value="댓글수정" 
+											style="width:120px;height:104px; background-color: green; color:white">
+										</form>
 										</td>
 									</tr>
 								</table>
