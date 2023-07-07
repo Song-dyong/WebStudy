@@ -37,7 +37,7 @@ public class FreeBoardModel {
 		request.setAttribute("main_jsp", "../board/list.jsp");
 		// main_jsp => 화면 출력
 		CommonModel.commonRequestData(request);
-		return "..main/main.jsp";
+		return "../main/main.jsp";
 	}
 	
 	@RequestMapping("board/insert.do")
@@ -45,7 +45,7 @@ public class FreeBoardModel {
 		
 		request.setAttribute("main_jsp", "../board/insert.jsp");
 		CommonModel.commonRequestData(request);
-		return "..main/main.jsp";
+		return "../main/main.jsp";
 	}
 	
 	@RequestMapping("board/insert_ok.do")
@@ -78,7 +78,12 @@ public class FreeBoardModel {
 		FreeBoardVO vo=dao.freeboardDetailData(Integer.parseInt(no));
 		
 		request.setAttribute("vo", vo);
-		request.setAttribute("main_jsp", "..board/detail.jsp");
+		request.setAttribute("main_jsp", "../board/detail.jsp");
+		
+		FreeBoardReplyDAO fdao=FreeBoardReplyDAO.newInstance();
+		List<FreeBoardReplyVO> list=fdao.replyListData(Integer.parseInt(no));
+		request.setAttribute("list", list);
+		
 		CommonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +10,18 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-.row{
+.row {
 	margin: 0px auto;
-	width:600px;
+	width: 600px;
 }
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 let i=0;	// 전역변수
+let u=0;
 $(function(){
+	
+	
 	$('#del').click(function(){
 		if(i==0){
 			$(this).text("취소")
@@ -39,7 +44,7 @@ $(function(){
 		$.ajax({
 			type:'post',
 			url:'../board/delete.do',
-			data:{"no":no,"pwd":pwd}	// delete.do?no=1&pwd=1111	=> data가 물음표 뒤로 붙어서 넘어간다.
+			data:{"no":no,"pwd":pwd},	// delete.do?no=1&pwd=1111	=> data가 물음표 뒤로 붙어서 넘어간다.
 			success:function(result)	// ajax에서 자동으로 result(이름 자유)를 넣어줌
 			{
 				let res=result.trim();
@@ -52,14 +57,32 @@ $(function(){
 				}
 			}
 		})
+		
 	})
+	// Update
+	// Update (수정)
+	$('.ups').click(function(){
+		let no = $(this).attr("data-no")
+		$('.ups').text("수정")
+		$('.updates').hide()
+		if (u===0) {
+			$('#u'+no).show()
+			$(this).text("취소")
+			u=1
+		} else {
+			$('#u'+no).hide()
+			$(this).text("수정")
+			u=0
+		}
+	})
+	
 })
 </script>
 </head>
 <body>
 	<div class="wrapper row3">
 		<main class="container clear">
-		<h2 class="sectiontitle">상세보기</h2>
+			<h2 class="sectiontitle">상세보기</h2>
 			<table class="table">
 				<tr>
 					<th width=20% class="text-center">번호</th>
@@ -78,24 +101,89 @@ $(function(){
 					<td colspan="3">${vo.subject }</td>
 				</tr>
 				<tr>
-					<td colspan=4 class="text-left" valign=top height=200>
-					<pre style="white-space:pre-wrap; border:none;background-color:white">${vo.content }</pre>
+					<td colspan=4 class="text-left" valign=top height=200><pre
+							style="white-space: pre-wrap; border: none; background-color: white">${vo.content }</pre>
 					</td>
 				</tr>
 				<tr>
-					<td colspan=4 class=text-right>
-						<a href="../board/update.do?no=${vo.no }" class="btn btn-xs btn-info">수정</a>
-						<span class="btn btn-xs btn-success" id="del">삭제</span>
-						<a href="../board/list.do" class="btn btn-xs btn-warning">목록</a>
-					</td>
+					<td colspan=4 class=text-right><a
+						href="../board/update.do?no=${vo.no }" class="btn btn-xs btn-info">수정</a>
+						<span class="btn btn-xs btn-success" id="del">삭제</span> <a
+						href="../board/list.do" class="btn btn-xs btn-warning">목록</a></td>
 				</tr>
-				<tr style="display:none" id="delTr">
-					<td colspan=4 class="text-right inline">
-						PassWord: <input type="password" name=pwd id=pwd1 size=10 class="input-sm">
-						<input type=button value="Delete" data-no="${vo.no }" class="btn btn-sm btn-primary" id=delBtn>
+				<tr style="display: none" id="delTr">
+					<td colspan=4 class="text-right inline">PassWord: <input
+						type="password" name=pwd id=pwd1 size=10 class="input-sm">
+						<input type=button value="Delete" data-no="${vo.no }"
+						class="btn btn-sm btn-primary" id=delBtn>
 					</td>
 				</tr>
 			</table>
+			<div style="height: 20px"></div>
+			<div class="col-sm-8">
+				<%-- 댓글 출력 위치 --%>
+				<table class="table">
+					<%-- 댓글 출력 위치 --%>
+					<tr>
+						<td>
+							<c:forEach var="rvo" items="${ list }">
+								<table class="table">
+									<tr>
+										<td class="text-left">
+											<c:if test="${ rvo.group_tab > 0 }">
+												<c:forEach var="i" begin="1" end="${ rvo.group_tab }">
+													&nbsp;&nbsp;
+												</c:forEach>
+												<img src="image/re_icon.png">
+											</c:if>
+											◎${ rvo.name }&nbsp;(${ rvo.dbday })
+										</td>
+										
+										<td class="text-right">
+											<span class="btn btn-xs btn-success ups" data-no="${rvo.no }">수정</span>
+											<a href="#" class="btn btn-xs btn-info">삭제</a>
+											<a href="#" class="btn btn-xs btn-warning">댓글</a>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<pre style="white-space: pre-wrap; background-color:white; border:none;">${ rvo.msg }</pre>
+										</td>
+									</tr>
+									<tr style="display:none;" class="updates" id="u${ rvo.no }">
+										<td colspan="2">
+											<form method="post" action="../board/reply_update.do" class="inline">
+												<input type="hidden" name="bno" value="${ vo.no }">
+												<input type="hidden" name="no" value="${ rvo.no }">
+												<textarea rows="5" cols="55" name="msg" style="float:left;">${ rvo.msg }</textarea>
+												<input type="submit" value="댓글수정" style="width: 104px; height:92px; background-color:green; color:white;">
+											</form>
+										</td>
+									</tr>
+								</table>
+							</c:forEach>
+						</td>
+					</tr>
+				</table>
+
+				<c:if test="${sessionScope.id!=null }">
+					<%-- 새 댓글 입력 --%>
+					<table class="table">
+						<tr>
+							<td>
+								<form method="post" action="../board/reply_insert.do"
+									class="inline">
+									<input type="hidden" name=bno value="${vo.no }">
+									<textarea rows="5" cols="50" name="msg" style="float: left"></textarea>
+									<input type="submit" value="댓글쓰기"
+										style="width: 120px; height: 104px; background-color: green; color: white">
+								</form>
+							</td>
+						</tr>
+					</table>
+				</c:if>
+			</div>
+			<div class="col-sm-4"></div>
 		</main>
 	</div>
 </body>
