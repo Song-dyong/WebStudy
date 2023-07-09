@@ -14,6 +14,10 @@
 	margin: 0px auto;
 	width: 860px;
 }
+.main_poster{
+	width: 480px;
+	height: 360px;
+}
 </style>
 </head>
 <body>
@@ -34,7 +38,7 @@
 			<div class="col-md-3">
 			    <div class="thumbnail">
 			      <a href="../goods/goods_detail_before.do?no=${vo.no }&type=${type }">
-			        <img src="${vo.goods_poster }" title="${vo.goods_name }" style="width:100%">
+			        <img src="${vo.goods_poster }" title="${vo.goods_name }" class="main_poster">
 			        <div class="caption">
 			          <p>${vo.goods_price }</p>
 			        </div>

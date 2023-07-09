@@ -7,7 +7,7 @@
 </c:if>
 <c:if test="${bCheck==false }">
 	<script>
-		alert("Wrong PassWord!")
+		alert("Wrong PassWord!!")
 		history.back();
 	</script>
 </c:if>
