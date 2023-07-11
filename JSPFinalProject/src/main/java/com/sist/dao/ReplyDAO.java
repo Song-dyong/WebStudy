@@ -7,6 +7,12 @@ import oracle.jdbc.OracleTypes;
 
 import com.sist.common.*;
 
+/*
+	트랜잭션
+	=> 여러 sql문장을 사용할 경우, 후위의 sql문장이 오류가 날 경우, 앞선 sql문장이 실행되버리는 문제가 발생
+	=> 오토커밋이 아닌, sql문장을 전부 실행한 뒤 commit을 하고 만일 오류가 발생할 경우, 예외처리에서 rollback 사용
+	
+*/
 public class ReplyDAO {
 	private Connection conn;
 	private CallableStatement cs;
@@ -123,6 +129,5 @@ public class ReplyDAO {
 		}finally {
 			db.disConnection(conn, cs);
 		}
-		
 	}
 }
