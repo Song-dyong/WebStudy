@@ -2,11 +2,36 @@ package com.sist.vo;
 
 import java.util.*;
 
-public class ReserveInfoVO {
+public class ReserveVO {
 	private int no, fno;
 	private String id, rday, rtime, inwon, rok;
 	private Date regdate;
+	private String poster, name, tel, dbday;	// subQuery or function  
 	
+	public String getPoster() {
+		return poster;
+	}
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getDbday() {
+		return dbday;
+	}
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
+	}
 	public int getNo() {
 		return no;
 	}
