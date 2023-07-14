@@ -82,11 +82,9 @@
 					<c:set var="week" value="${week+1 }" />
 					<c:if test="${week>6 }">
 						<c:set var="week" value="0" />
-						</tr>
 						<tr>
 					</c:if>
 				</c:forEach>
-						</tr>
 			</table>
 </body>
 </html>

@@ -6,7 +6,9 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.common.CommonModel;
 import com.sist.controller.RequestMapping;
+import com.sist.dao.FoodJjimLikeDAO;
 import com.sist.dao.ReserveDAO;
+import com.sist.vo.FoodJjimVO;
 import com.sist.vo.ReserveVO;
 
 import java.util.*;
@@ -34,5 +36,19 @@ public class MyPageModel {
 		CommonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
+	@RequestMapping("mypage/mypage_jjim_list.do")
+	public String mypage_jjim(HttpServletRequest request, HttpServletResponse response) {
 	
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		
+		FoodJjimLikeDAO dao=FoodJjimLikeDAO.newInstance();
+		List<FoodJjimVO> list = dao.foodJjimListData(id);
+		
+		request.setAttribute("list", list);
+		request.setAttribute("mypage_jsp", "../mypage/mypage_jjim.jsp");
+		request.setAttribute("main_jsp", "../mypage/mypage_main.jsp");
+		CommonModel.commonRequestData(request);
+		return "../main/main.jsp";
+	}
 }

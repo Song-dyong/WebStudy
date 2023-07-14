@@ -3,6 +3,7 @@ package com.sist.model;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.common.CommonModel;
 import com.sist.controller.RequestMapping;
@@ -169,6 +170,32 @@ public class FoodModel {
 		request.setAttribute("main_jsp", "../food/food_detail.jsp");
 		CommonModel.commonRequestData(request);
 		
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		
+		if(id!=null) {
+			FoodJjimLikeDAO jdao=FoodJjimLikeDAO.newInstance();
+			int jjim_count=jdao.foodJjimCount(id, Integer.parseInt(fno));
+			request.setAttribute("jjim_count", jjim_count);
+			int like_count=jdao.foodLikeOk(Integer.parseInt(fno), id);
+			int like_total=jdao.foodLikeCount(Integer.parseInt(fno));
+			request.setAttribute("like_count", like_count);
+			request.setAttribute("like_total", like_total);
+		}
+		// 레시피 읽기
+		String type=vo.getType();
+		// /가 있는지 없는지 확인 
+		int num=type.indexOf("/");
+		if(num>=0) {
+			type=type.replace("/", "|");
+			// 라멘 | 소바 | 우동 => regexp_like 함수 활용하기 위해서 형식 변경
+		}else {
+			type=type.substring(0,type.indexOf(" "));
+			// 태국 음식 -> 태국만 가져오기
+		}
+		List<RecipeVO> rList=dao.foodRecipeData(type);
+		
+		request.setAttribute("reList", rList);
 		// 댓글 읽기
 		ReplyDAO rdao=ReplyDAO.newInstance();
 		List<ReplyVO> list=rdao.replyListData(1, Integer.parseInt(fno));

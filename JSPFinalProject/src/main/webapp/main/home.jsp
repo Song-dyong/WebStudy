@@ -34,14 +34,14 @@
 			<ul class="nospace group btmspace-80">
 				<li class="one_third first">
 					<article class="service">
-						<i class="icon fa fa-ambulance"></i>
+						<i class="icon fa fa-umbrella"></i>
 						<h6 class="heading">
-							<a href="#">오늘의 날씨</a>
+							<a href="../weather/weather.do">오늘의 날씨</a>
 						</h6>
-						<p>Aenean semper elementum tellus, ut placerat leo. Quisque
-							vehicula, urna sit amet.</p>
+						<p>12일(수) 최저-최고30℃. 시각; 날씨; 기온 (체감); 강수량; 강수 확률; 바람; 습도; 폭염 영향. 시각: 13시; 날씨: 흐림; 기온(체감온도) 28℃(29℃) ...
+						</p>
 						<footer>
-							<a href="#">Read More &raquo;</a>
+							<a href="../weather/weather.do">Read More &raquo;</a>
 						</footer>
 					</article>
 				</li>
@@ -62,7 +62,7 @@
 					<article class="service">
 						<i class="icon fa fa-hospital-o"></i>
 						<h6 class="heading">
-							<a href="#">추천 레시피</a>
+							<a href="#">추천 서울 여행</a>
 						</h6>
 						<p>Aenean semper elementum tellus, ut placerat leo. Quisque
 							vehicula, urna sit amet.</p>
