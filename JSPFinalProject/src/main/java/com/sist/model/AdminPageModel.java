@@ -12,8 +12,8 @@ import com.sist.dao.*;
 public class AdminPageModel {
 	@RequestMapping("adminpage/adminpage_main.do")
 	public String admin_main(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("main_jsp", "../adminpage/adminpage_main.jsp");
 		request.setAttribute("adminpage_jsp", "../adminpage/adminpage_reserve.jsp");
+		request.setAttribute("main_jsp", "../adminpage/adminpage_main.jsp");
 		return "../main/main.jsp";
 	}
 

@@ -36,7 +36,7 @@
 	        <a href="../adminpage/admin_reserve_ok.do?no=${vo.no }" class="btn btn-sm btn-success">승인대기</a>
 	      </c:if>
 	      <c:if test="${vo.rok=='y' }">
-	        <span href="" class="btn btn-sm btn-default">승인완료</span>
+	        <span class="btn btn-sm btn-default">승인완료</span>
 	      </c:if>
 	    </td>
      </tr>
