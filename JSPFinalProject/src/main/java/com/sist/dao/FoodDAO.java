@@ -223,10 +223,10 @@ public class FoodDAO {
 		List<FoodVO> list = new ArrayList<FoodVO>();
 		try {
 			conn=db.getConnection();
-			String sql="SELECT fno, name, hit, rownum "
-					+ "FROM (SELECT fno,name,hit "
-					+ "FROM food_house ORDER BY hit DESC) "
-					+ "WHERE rownum<=7";
+			   String sql="SELECT fno,name,hit,rownum "
+					     +"FROM (SELECT fno,name,hit  "
+					     +"FROM food_house ORDER BY hit DESC) "
+					     +"WHERE rownum<=7";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
