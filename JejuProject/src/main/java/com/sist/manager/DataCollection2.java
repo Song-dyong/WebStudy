@@ -24,7 +24,7 @@ public class DataCollection2 {
 	public static String url;
 
 	public static String WEB_DRIVER_ID = "webdriver.firefox.driver";
-	public static String WEB_DRIVER_PATH = "C:\\Users\\SIST\\Desktop\\Sele\\fire\\geckodriver.exe";
+	public static String WEB_DRIVER_PATH = "/Users/dyongsong/Desktop/Sele/fire/geckodriver.exe";
 
 	public DataCollection2() {
 		System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
@@ -52,7 +52,7 @@ public class DataCollection2 {
 
 				List<WebElement> linkElements = driver
 						.findElements(By.xpath("/html/body/div[4]/div/div/div/div[2]/main/div/div[2]/a"));
-
+				
 				int linkCount = linkElements.size();
 				for (int i = 0; i < linkCount; i++) {
 					try {
@@ -94,7 +94,7 @@ public class DataCollection2 {
 						}
 
 						StringBuilder imageUrls = new StringBuilder();
-
+//				/html/body/main/div[3]/div/div[2]/div/article/section[2]/div[2]/div/div/div[1]/img[1]
 						List<WebElement> images1 = driver.findElements(By.xpath(
 								"/html/body/main/div[3]/div/div[2]/div/article/section[2]/div[2]/div/div/div[1]/img"));
 						for (int j = 0; j < images1.size(); j++) {
@@ -221,7 +221,7 @@ public class DataCollection2 {
 						// System.out.println("포스터: " + avo.getPoster());
 						System.out.println("메인포스터: " + avo.getMain_poster());
 						System.out.println("총 갯수: " + count);
-						dao.activityInfoInsert(avo);
+						//dao.activityInfoInsert(avo);
 						count++;
 						System.out.println("-------------------------------------------------------------------------");
 						driver.navigate().back(); // 이전 페이지로 돌아감
