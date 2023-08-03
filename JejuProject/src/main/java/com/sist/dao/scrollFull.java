@@ -7,12 +7,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.sist.vo.LinkVO;
+
 import java.time.Duration;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class scrollFull {
     public static void main(String[] args) {
+    	StoreDAO dao=StoreDAO.newInstance();
     	System.setProperty("webdriver.firefox.driver", "/Users/dyongsong/Desktop/Sele/fire/geckodriver");
 
         WebDriver driver = new FirefoxDriver();
@@ -26,16 +32,6 @@ public class scrollFull {
             List<WebElement> posterElements = driver.findElements(By.className("CardThumbnail_thumbnail__3bDBJ"));
             List<WebElement> linkElements=null;
             int count = 1;
-
-            for (WebElement posterElement : posterElements) {
-                String posterStyle = posterElement.getAttribute("style");
-                if (posterStyle.contains("background-image: url")) {
-                    String poster = extractImageUrl(posterStyle);
-                    System.out.println(count);
-                    System.out.println("poster: " + poster);
-                    count++;
-                }
-            }
 
             JavascriptExecutor js = (JavascriptExecutor) driver;
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -59,10 +55,14 @@ public class scrollFull {
                     String posterStyle = posterElements.get(i).getAttribute("style");
                     String linkhref = linkElements.get(i).getAttribute("href");
                     if (posterStyle.contains("background-image: url")) {
+                    	LinkVO vo=new LinkVO();
                         String poster = extractImageUrl(posterStyle);
                         System.out.println(count);
                         System.out.println("poster: " + poster);
                         System.out.println("link: " + linkhref);
+                        vo.setMain_poster(poster);
+                        vo.setLink(linkhref);
+                        dao.storeLinkInsert(vo);
                         count++;
                     }
                 }
@@ -85,8 +85,13 @@ public class scrollFull {
     }
 
     private static String extractImageUrl(String styleAttribute) {
-        int startIndex = styleAttribute.indexOf("url(\"") + 5;
-        int endIndex = styleAttribute.indexOf("\")", startIndex);
-        return styleAttribute.substring(startIndex, endIndex);
+    	String regex = "https://.+?\\.(?:jpg|png)"; // .jpg로 끝나는 URL 추출
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(styleAttribute);
+        if (matcher.find()) {
+            return matcher.group();
+        } else {
+            return null;
+        }
     }
 }

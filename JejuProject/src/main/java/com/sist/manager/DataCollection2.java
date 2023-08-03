@@ -96,6 +96,7 @@ public class DataCollection2 {
 						StringBuilder imageUrls = new StringBuilder();
 //				/html/body/main/div[3]/div/div[2]/div/article/section[2]/div[2]/div/div/div[1]/img[1]
 						List<WebElement> images1 = driver.findElements(By.xpath(
+							  ///html/body/main/div[3]/div/div[2]/div/article/section[2]/div[2]/div/div/div[1]
 								"/html/body/main/div[3]/div/div[2]/div/article/section[2]/div[2]/div/div/div[1]/img"));
 						for (int j = 0; j < images1.size(); j++) {
 							WebElement imageElement = images1.get(j);
